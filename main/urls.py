@@ -18,5 +18,8 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^track_your_order/(?P<tracking_id>[0-9]+)$', views.user_order, name='user_order'),
+    # url(r'^track_your_order/(?P<tracking_id>[0-9]+)$', views.OrderDetailView.as_view(), name='track_your_order'),
+    url(r'^register/$', views.register, name='register'),
+    url(r'^login_user/$', views.login_user, name='login_user'),
+    url(r'^logout_user/$', views.logout_user, name='logout_user'),
 ]
