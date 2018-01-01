@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from .forms import UserForm
-from .models import Order
+from .models import Order, Client
 
 
 def index(request):
@@ -52,10 +52,10 @@ def register(request):
         user.save()
         user = authenticate(username=username, password=password)
         if user is not None:
-            if user.is_active:
-                login(request, user)
-                # albums = Album.objects.filter(user=request.user)
-                return render(request, 'main/index.html')
+            client = Client()
+            client.user = user
+            client.save()
+            return render(request, 'main/index.html')
     context = {
         "form": form,
     }
