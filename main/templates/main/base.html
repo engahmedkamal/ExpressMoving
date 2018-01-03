@@ -2,24 +2,26 @@
 <html lang="en">
 <head>
     <head>
-        <title>Home</title>
+        <title>{% block title %}Home{% endblock %}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="format-detection" content="telephone=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
 
-         {% load staticfiles %}
+        {% load staticfiles %}
         <!-- Fonts-->
-        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/fonts/fontawesome/font-awesome.min.css'%}">
-        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/fonts/themify-icons/themify-icons.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/fonts/fontawesome/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/fonts/themify-icons/themify-icons.css' %}">
         <!-- Vendors-->
-        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/bootstrap4/bootstrap-grid.min.css'%}">
-        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/magnific-popup/magnific-popup.min.css'%}">
-        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/owl.carousel/owl.carousel.css'%}">
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'main/assets/vendors/bootstrap4/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'main/assets/vendors/magnific-popup/magnific-popup.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/owl.carousel/owl.carousel.css' %}">
         <!-- App & fonts-->
         <link rel="stylesheet" type="text/css"
               href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
-        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/main.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/main.css' %}">
         <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<![endif]-->
@@ -31,20 +33,19 @@
     <!-- header -->
     <header class="header {% block headerStyle %}header__style-02{% endblock %}">
         <div class="container">
-            <div class="header__logo"><a href="index.html"><img src="{% static 'main/assets/img/logo.png'%}" alt=""/></a></div>
+            <div class="header__logo"><a href="index.html"><img src="{% static 'main/assets/img/logo.png' %}"
+                                                                alt=""/></a></div>
             <div class="header__toogleGroup">
                 <div class="search-form">
-                    <div class="search-form__toggle"><i class="ti-search"></i></div>
+                    <div class="search-form__toggle">TRACK YOUR ORDER <i class="ti-search"></i></div>
                     <div class="search-form__form">
-
-                        <!-- form-search -->
                         <div class="form-search">
-                            <form>
-                                <input class="form-control" type="text"
-                                       placeholder="Hit enter to search or ESC to close"/>
+                            <form role="search" method="get" action="{% url 'track_your_order' %}">
+                                <input class="form-control" type="text" name="tracking_id"
+                                       value="{{ request.GET.tracking_id }}"
+                                       placeholder="Enter the Tracking Number and Hit enter to search or ESC to close"/>
                             </form>
-                        </div><!-- End / form-search -->
-
+                        </div>
                     </div>
                 </div>
             </div>
@@ -56,33 +57,13 @@
                 <ul class="consult-menu">
                     <li class="{% block active_index %}{% endblock %}"><a href="{% url 'index' %}">Home</a>
                     </li>
-                    <li class="{% block active_about %}{% endblock %}"><a href="about.html">about</a>
-                    </li>
-                    <li class="menu-item-has-children"><a href="#">page</a>
-                        <ul class="sub-menu">
-                            <li><a href="comming-soon.html">Comming Soon</a>
-                            </li>
-                            <li><a href="404.html">404</a>
-                            </li>
-                            <li><a href="typography.html">Typography</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="service.html">services</a>
-                    </li>
-                    <li class="menu-item-has-children"><a href="project.html">project</a>
-                        <ul class="sub-menu">
-                            <li><a href="project-detail.html">Project detail</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item-has-children"><a href="blog.html">blog</a>
-                        <ul class="sub-menu">
-                            <li><a href="blog-detail.html">Blog detail</a>
-                            </li>
-                        </ul>
+                    <li class="{% block active_about %}{% endblock %}"><a href="{% url 'about' %}">about</a>
                     </li>
                     <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contact' %}">contact</a>
+                    </li>
+                    <li class="{% block active_register %}{% endblock %}"><a href="{% url 'register' %}">sign up</a>
+                    </li>
+                    <li class="{% block active_login %}{% endblock %}"><a href="{% url 'register' %}">login</a>
                     </li>
                 </ul><!-- consult-menu -->
 
@@ -93,100 +74,108 @@
     </header><!-- End / header -->
 
     <!-- Content-->
-{% block body %}
-{% endblock %}
+    {% block body %}
+    {% endblock %}
     <!-- End / Content-->
-
-    <!-- footer -->
-    <footer class="footer">
-        <div class="footer__main">
-            <div class="row row-eq-height">
-                <div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
-                    <div class="footer__item"><a class="consult_logo" href="#"><img src="{% static 'main/assets/img/logo.png'%}"
-                                                                                    alt=""/></a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a tincidunt.</p>
+    {% block footer %}
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer__main">
+                <div class="row row-eq-height">
+                    <div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
+                        <div class="footer__item"><a class="consult_logo" href="#"><img
+                                src="{% static 'main/assets/img/logo.png' %}"
+                                alt=""/></a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a
+                                tincidunt.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
-                    <div class="footer__item">
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
+                        <div class="footer__item">
 
-                        <!-- widget-text__widget -->
-                        <section class="widget-text__widget widget">
-                            <div class="widget-text__content">
-                                <ul>
-                                    <li><a href="#">Term of Services </a></li>
-                                    <li><a href="#">Privacy Policy </a></li>
-                                    <li><a href="#">Sitemap </a></li>
-                                    <li><a href="#">Help</a></li>
-                                </ul>
-                            </div>
-                        </section><!-- End / widget-text__widget -->
-
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
-                    <div class="footer__item">
-
-                        <!-- widget-text__widget -->
-                        <section class="widget-text__widget widget">
-                            <div class="widget-text__content">
-                                <ul>
-                                    <li><a href="#">How It Work </a></li>
-                                    <li><a href="#">Carrier </a></li>
-                                    <li><a href="#">Pricing </a></li>
-                                    <li><a href="#">Support</a></li>
-                                </ul>
-                            </div>
-                        </section><!-- End / widget-text__widget -->
-
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-2 col-xl-2 ">
-                    <div class="footer__item">
-
-                        <!-- form-sub -->
-                        <div class="form-sub">
-                            <h4 class="form-sub__title">Our Newsletter</h4>
-                            <form class="form-sub__form">
-                                <div class="form-item">
-                                    <input class="form-control" type="email" placeholder="Enter Your Email Address..."/>
+                            <!-- widget-text__widget -->
+                            <section class="widget-text__widget widget">
+                                <div class="widget-text__content">
+                                    <ul>
+                                        <li><a href="#">Term of Services </a></li>
+                                        <li><a href="#">Privacy Policy </a></li>
+                                        <li><a href="#">Sitemap </a></li>
+                                        <li><a href="#">Help</a></li>
+                                    </ul>
                                 </div>
-                                <div class="form-submit">
-                                    <button class="form-button" type="submit"><i class="fa fa-paper-plane"
-                                                                                 aria-hidden="true"></i></button>
-                                </div>
-                            </form>
-                        </div><!-- End / form-sub -->
+                            </section><!-- End / widget-text__widget -->
 
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2  consult_backToTop">
-                    <div class="footer__item"><a href="#" id="back-to-top"> <i class="fa fa-angle-up"
-                                                                               aria-hidden="true"> </i><span>Back To Top</span></a>
+                    <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+                        <div class="footer__item">
+
+                            <!-- widget-text__widget -->
+                            <section class="widget-text__widget widget">
+                                <div class="widget-text__content">
+                                    <ul>
+                                        <li><a href="#">How It Work </a></li>
+                                        <li><a href="#">Carrier </a></li>
+                                        <li><a href="#">Pricing </a></li>
+                                        <li><a href="#">Support</a></li>
+                                    </ul>
+                                </div>
+                            </section><!-- End / widget-text__widget -->
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-2 col-xl-2 ">
+                        <div class="footer__item">
+
+                            <!-- form-sub -->
+                            <div class="form-sub">
+                                <h4 class="form-sub__title">Our Newsletter</h4>
+                                <form class="form-sub__form">
+                                    <div class="form-item">
+                                        <input class="form-control" type="email"
+                                               placeholder="Enter Your Email Address..."/>
+                                    </div>
+                                    <div class="form-submit">
+                                        <button class="form-button" type="submit"><i class="fa fa-paper-plane"
+                                                                                     aria-hidden="true"></i></button>
+                                    </div>
+                                </form>
+                            </div><!-- End / form-sub -->
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2  consult_backToTop">
+                        <div class="footer__item"><a href="#" id="back-to-top"> <i class="fa fa-angle-up"
+                                                                                   aria-hidden="true"> </i><span>Back To Top</span></a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer__copyright">2017 &copy; Copyright Awe7. All rights Reserved.</div>
-    </footer><!-- End / footer -->
-
+            <div class="footer__copyright">2017 &copy; Copyright Awe7. All rights Reserved.</div>
+        </footer><!-- End / footer -->
+    {% endblock %}
 </div>
 <!-- Vendors-->
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery/jquery.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/imagesloaded/imagesloaded.pkgd.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/isotope-layout/isotope.pkgd.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countdown/jquery.countdown.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countTo/jquery.countTo.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countUp/jquery.countup.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/magnific-popup/jquery.magnific-popup.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/masonry-layout/masonry.pkgd.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/owl.carousel/owl.carousel.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.waypoints/jquery.waypoints.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/menu/menu.min.js'%}"></script>
-<script type="text/javascript" src="{% static 'main/assets/vendors/smoothscroll/SmoothScroll.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/isotope-layout/isotope.pkgd.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countTo/jquery.countTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countUp/jquery.countup.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/masonry-layout/masonry.pkgd.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/owl.carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.waypoints/jquery.waypoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/menu/menu.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/smoothscroll/SmoothScroll.min.js' %}"></script>
 <!-- App-->
-<script type="text/javascript" src="{% static 'main/assets/js/main.js'%}"></script>
+<script type="text/javascript" src="{% static 'main/assets/js/main.js' %}"></script>
 </body>
 </html>

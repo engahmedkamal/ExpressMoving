@@ -1,26 +1,88 @@
 {% extends 'main/base.html' %}
 {% block title %}Order Details{% endblock %}
 {% block headerStyle %}{% endblock %}
+{% block active_register %}current-menu-item{% endblock %}
 {% block body %}
     <div class="md-content">
 
         <!-- Section -->
         <section class="md-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-xl-8 offset-0 offset-sm-0 offset-md-0 offset-lg-1 offset-xl-2 ">
-
-                        <!-- title-01 -->
-                        <div class="title-01 title-01__style-04">
-                            <h6 class="title-01__subTitle">Order tracking Id:-{{ order.trackingId }}</h6>
-                            <h2 class="title-01__title">Status : {{ order.get_orderStatus_display }}</h2>
-                            <div>
-                                    For more information contact : 888-888-888
+                <form class="form-horizontal" action='{% url 'register' %}' method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Register</legend>
+                        </div>
+                        <div class="control-group">
+                            <!-- Username -->
+                            <label class="control-label" for="username">Username</label>
+                            <div class="controls">
+                                <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+                                <p class="help-block">Username can contain any letters or numbers, without spaces</p>
                             </div>
-                        </div><!-- End / title-01 -->
+                        </div>
 
-                    </div>
-                </div>
+                         <div class="control-group">
+                            <label class="control-label" for="first_name">First Name</label>
+                            <div class="controls">
+                                <input type="text" id="first_name" name="first_name" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+
+                         <div class="control-group">
+                            <label class="control-label" for="last_name">Last Name</label>
+                            <div class="controls">
+                                <input type="text" id="last_name" name="last_name" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Username -->
+                            <label class="control-label" for="mobile">Mobile</label>
+                            <div class="controls">
+                                <input type="text" id="mobile" name="mobile" placeholder="" class="input-xlarge">
+                                <p class="help-block">enter your mobile number</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- E-mail -->
+                            <label class="control-label" for="email">E-mail</label>
+                            <div class="controls">
+                                <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your E-mail</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password-->
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder=""
+                                       class="input-xlarge">
+                                <p class="help-block">Password should be at least 4 characters</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label" for="password_confirm">Password (Confirm)</label>
+                            <div class="controls">
+                                <input type="password" id="password_confirm" name="password_confirm" placeholder=""
+                                       class="input-xlarge">
+                                <p class="help-block">Please confirm password</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success">Register</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </section>
     </div>
