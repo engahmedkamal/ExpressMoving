@@ -92,12 +92,12 @@ WSGI_APPLICATION = 'expressMoving.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':    'v2',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':    'v1',
         'USER': 'root',
         'PASSWORD': 'root1234',
-        'HOST': 'v2.cofjuisigjbs.us-east-1.rds.amazonaws.com',
-        'PORT': '3306'
+        'HOST': 'v1.cofjuisigjbs.us-east-1.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
