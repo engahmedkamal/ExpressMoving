@@ -22,9 +22,6 @@
         <link rel="stylesheet" type="text/css"
               href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
         <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/main.css' %}">
-        <!--[if lt IE 9]>
-			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-		<![endif]-->
     </head>
 </head>
 <body>
@@ -33,7 +30,7 @@
     <!-- header -->
     <header class="header {% block headerStyle %}header__style-02{% endblock %}">
         <div class="container">
-            <div class="header__logo"><a href="index.html"><img src="{% static 'main/assets/img/logo.png' %}"
+            <div class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'main/assets/img/logo.png' %}"
                                                                 alt=""/></a></div>
             <div class="header__toogleGroup">
                 <div class="search-form">
@@ -61,10 +58,17 @@
                     </li>
                     <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contact' %}">contact</a>
                     </li>
+                {% if not user.is_authenticated %}
                     <li class="{% block active_register %}{% endblock %}"><a href="{% url 'register' %}">sign up</a>
                     </li>
-                    <li class="{% block active_login %}{% endblock %}"><a href="{% url 'register' %}">login</a>
+                    <li class="{% block active_login %}{% endblock %}"><a href="{% url 'login_user' %}">login</a>
                     </li>
+                {% else %}
+                    <li class="{% block active_create_order %}{% endblock %}"><a href="{% url 'create_order' %}">Create Order</a>
+                    </li>
+                    <li class="{% block active_logout %}{% endblock %}"><a href="{% url 'logout_user' %}">log out</a>
+                    </li>
+                {% endif %}
                 </ul><!-- consult-menu -->
 
                 <div class="navbar-toggle"><span></span><span></span><span></span></div>

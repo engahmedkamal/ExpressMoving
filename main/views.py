@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import UserForm
 from .models import Order, Client
@@ -41,8 +41,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                # albums = Album.objects.filter(user=request.user)
-                return render(request, 'main/index.html')
+                return redirect('index')
             else:
                 return render(request, 'main/login.html', {'error_message': 'Your account has been disabled'})
         else:
@@ -56,16 +55,20 @@ def register(request):
         user = form.save(commit=False)
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
-        mobileNumber=request.POST['mobile']
+        mobileNumber = request.POST['mobile']
         user.set_password(password)
         user.save()
         user = authenticate(username=username, password=password)
         if user is not None:
-            client = Client(mobile_no=mobileNumber,user=user)
+            client = Client(mobile_no=mobileNumber, user=user)
             client.save()
-            login(request,user)
-            return render(request, 'main/index.html')
+            login(request, user)
+            return redirect('index')
     context = {
         "form": form,
     }
     return render(request, 'main/registration.html', context)
+
+
+def create_order(request):
+    return render(request, "main/create_order.html")

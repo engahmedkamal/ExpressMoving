@@ -1,0 +1,49 @@
+{% extends 'main/base.html' %}
+{% block title %}Login{% endblock %}
+{% block headerStyle %}{% endblock %}
+{% block active_login %}current-menu-item{% endblock %}
+{% block body %}
+    <div class="md-content">
+        <!-- Section -->
+        <section class="md-section">
+            <div class="container">
+                <form class="form-horizontal" action='{% url 'login_user' %}' method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Login</legend>
+                            {% if error_message %}
+                                <p><strong>{{ error_message }}</strong></p>
+                            {% endif %}
+                        </div>
+                        <div class="control-group">
+                            <!-- Username -->
+                            <div class="controls">
+                                <input type="text" id="username" name="username" placeholder="username"
+                                       class="input-large">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <!-- Password -->
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder="password"
+                                       class="input-large">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-primary">Login</button>
+                            </div>
+                            <div class="panel-footer">
+                                Don't have an account? <a href="{% url 'register' %}">Click here</a> to register.
+                            </div>
+
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </div>
+{% endblock %}
