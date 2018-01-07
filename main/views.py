@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .forms import UserForm
+from .forms import UserForm, OrderForm
 from .models import Order, Client
 
 
@@ -55,7 +55,7 @@ def register(request):
         user = form.save(commit=False)
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
-        mobileNumber = request.POST['mobile']
+        mobileNumber = request.POST['mobile_number']
         user.set_password(password)
         user.save()
         user = authenticate(username=username, password=password)
@@ -71,4 +71,11 @@ def register(request):
 
 
 def create_order(request):
-    return render(request, "main/create_order.html")
+    if not request.user.is_authenticated:
+        return redirect('login_user')
+    else:
+        form = OrderForm(request.POST or None)
+        context = {
+            "form": form,
+        }
+        return render(request, "main/create_order.html",context)

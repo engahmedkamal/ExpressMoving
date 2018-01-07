@@ -1,23 +1,39 @@
 {% extends 'main/base.html' %}
-{% block title %}Login{% endblock %}
+{% block title %}Schedule New Order{% endblock %}
 {% block headerStyle %}{% endblock %}
 {% block active_create_order %}current-menu-item{% endblock %}
 {% block body %}
- <section class="md-section">
+    <div class="md-content">
+        <section class="md-section">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 col-xl-8 offset-0 offset-sm-0 offset-md-0 offset-lg-1 offset-xl-2 ">
+                <form class="form-horizontal" action='{% url 'register' %}' method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Schedule New Order</legend>
+                        </div>
+{#                        <div class="control-group">#}
+{#                            <label class="control-label" for="orderType">Order type:</label>#}
+{#                            <div class="controls">#}
+{#                                 <label class="radio-inline">#}
+{#                                <input type="radio" name="orderType" value="Local" checked>Local Within New Jersey#}
+{#                            </label>#}
+{#                            <label class="radio-inline">#}
+{#                                <input type="radio" name="orderType" disabled>Long Distance Not available online please contact us#}
+{#                            </label>#}
+{#                            </div>#}
+{#                        </div>#}
+                        {% include 'main/form_template.html' %}
 
-                        <!-- title-01 -->
-                        <div class="title-01 title-01__style-04">
-                            <h6 class="title-01__subTitle">Under Construction</h6>
-                            <h2 class="title-01__title">We Are The Leaders In This Industry</h2>
-                            <div>
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success">Register</button>
                             </div>
-                        </div><!-- End / title-01 -->
-
-                    </div>
-                </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </section>
+    </div>
 {% endblock %}

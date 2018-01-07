@@ -38,6 +38,7 @@ class Vehicle(models.Model):
 class VehicleType(models.Model):
     vehicle = models.ForeignKey(Vehicle, on_delete=models.CASCADE)
     size = models.CharField(max_length=50)
+    cost = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     enabled = models.BooleanField(default=True)
     createdAt = models.DateTimeField(editable=False)
     updateAt = models.DateTimeField()
@@ -60,7 +61,8 @@ class Order(models.Model):
     order_status = (
         (0, 'created'),
         (1, 'scheduled'),
-        (2, 'delivered')
+        (2, 'delivered'),
+        (3, 'canceled')
     )
     vehicle = models.ForeignKey(VehicleType, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -75,6 +77,9 @@ class Order(models.Model):
     noOFHours = models.DecimalField(max_digits=5, decimal_places=2, null=True)
     createdAt = models.DateTimeField(editable=False)
     updateAt = models.DateTimeField()
+    orderDate = models.DateField(null=False)
+    fromTime = models.TimeField(null=False)
+    toTime = models.TimeField(null=False)
 
     def save(self, *args, **kwargs):
         if not self.id:
