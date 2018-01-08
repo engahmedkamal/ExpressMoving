@@ -7,3 +7,4 @@
 db.sqlite3
 venv/
 main/migrations/0*
+.DS_Store
