@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render, get_object_or_404, redirect
-
+from .serializers import VehicleSerializer, VehicleTypeSerializer
 from .forms import UserForm, OrderForm
-from .models import Order, Client
+from .models import Order, Client, Vehicle, VehicleType
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 
 def index(request):
@@ -78,4 +80,18 @@ def create_order(request):
         context = {
             "form": form,
         }
-        return render(request, "main/create_order.html",context)
+        return render(request, "main/create_order.html", context)
+
+
+class VehicleList(APIView):
+    def get(self, request):
+        vehicle = Vehicle.objects.filter(enabled=True)
+        serializer = VehicleSerializer(vehicle, many=True)
+        return Response(serializer.data)
+
+
+class VehicleTypeList(APIView):
+    def get(self, request,vehicle_id):
+        vehicleType = VehicleType.objects.filter(enabled=True, vehicle=vehicle_id)
+        serializer = VehicleTypeSerializer(vehicleType, many=True)
+        return Response(serializer.data)

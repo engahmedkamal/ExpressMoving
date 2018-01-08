@@ -40,6 +40,7 @@ class VehicleType(models.Model):
     size = models.CharField(max_length=50)
     cost = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     enabled = models.BooleanField(default=True)
+    vehicle_img=models.FileField(null=True)
     createdAt = models.DateTimeField(editable=False)
     updateAt = models.DateTimeField()
 
