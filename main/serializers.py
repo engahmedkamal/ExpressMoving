@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Vehicle, VehicleType
+from .models import Vehicle, VehicleType, Configuration
 
 
 class VehicleSerializer(serializers.ModelSerializer):
@@ -12,3 +12,9 @@ class VehicleTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = VehicleType
         fields = ('size', 'cost', 'vehicle_img')
+
+
+class ConfigurationTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Configuration
+        fields = ('value',)

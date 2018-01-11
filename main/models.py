@@ -90,3 +90,15 @@ class Order(models.Model):
 
     def __str__(self):
         return self.trackingId
+
+class Configuration(models.Model):
+    variable = models.CharField(max_length=50)
+    value = models.CharField(max_length=256)
+    createdAt = models.DateTimeField(editable=False)
+    updateAt = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.createdAt = timezone.now()
+        self.updateAt = timezone.now()
+        return super(Configuration, self).save(*args, **kwargs)

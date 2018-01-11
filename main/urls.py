@@ -29,7 +29,7 @@ urlpatterns = [
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
     url(r'^vehiclelist/$', views.VehicleList.as_view()),
     url(r'^vehicleTypelist/(?P<vehicle_id>[0-9]+)$', views.VehicleTypeList.as_view()),
-
+    url(r'^config/(?P<variable>\w+)$', views.ConfigurationValue.as_view()),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)

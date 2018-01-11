@@ -1,9 +1,9 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render, get_object_or_404, redirect
-from .serializers import VehicleSerializer, VehicleTypeSerializer
+from .serializers import VehicleSerializer, VehicleTypeSerializer, ConfigurationTypeSerializer
 from .forms import UserForm, OrderForm
-from .models import Order, Client, Vehicle, VehicleType
+from .models import Order, Client, Vehicle, VehicleType, Configuration
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
@@ -91,7 +91,14 @@ class VehicleList(APIView):
 
 
 class VehicleTypeList(APIView):
-    def get(self, request,vehicle_id):
+    def get(self, request, vehicle_id):
         vehicleType = VehicleType.objects.filter(enabled=True, vehicle=vehicle_id)
         serializer = VehicleTypeSerializer(vehicleType, many=True)
+        return Response(serializer.data)
+
+
+class ConfigurationValue(APIView):
+    def get(self, request, variable):
+        configuratio = Configuration.objects.filter(variable=variable)
+        serializer = ConfigurationTypeSerializer(configuratio, many=True)
         return Response(serializer.data)
