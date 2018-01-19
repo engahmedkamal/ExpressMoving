@@ -108,6 +108,6 @@ class ConfigurationValue(APIView):
 
 class TrackYourOrder(APIView):
     def get(self, request, tracking_id):
-        order = Order.objects.filter(trackingId=tracking_id)
-        serializer = OrderSerializer(order,many=True)
+        order = Order.objects.filter(trackingId=tracking_id).first()
+        serializer = OrderSerializer(order)
         return Response(serializer.data)
