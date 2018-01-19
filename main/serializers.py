@@ -23,4 +23,4 @@ class ConfigurationTypeSerializer(serializers.ModelSerializer):
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('orderStatus','description','url')
+        fields = ('description','url')
