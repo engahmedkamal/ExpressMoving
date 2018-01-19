@@ -7,7 +7,8 @@ class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     confirm_password = forms.CharField(widget=forms.PasswordInput())
     mobile_number = forms.RegexField(regex=r'\D*([2-9]\d{2})(\D*)([2-9]\d{2})(\D*)(\d{4})\D*', required=True)
-
+    first_name = forms.CharField()
+    last_name = forms.CharField()
     class Meta:
         model = User
         fields = ['username', 'first_name', 'mobile_number', 'last_name', 'email', 'password']

@@ -81,6 +81,8 @@ class Order(models.Model):
     orderDate = models.DateField(null=False)
     fromTime = models.TimeField(null=False)
     toTime = models.TimeField(null=False)
+    description = models.CharField(max_length=5000,null=True)
+    url=models.CharField(max_length=80,null=True)
 
     def save(self, *args, **kwargs):
         if not self.id:

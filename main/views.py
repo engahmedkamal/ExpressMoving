@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render, get_object_or_404, redirect
-from .serializers import VehicleSerializer, VehicleTypeSerializer, ConfigurationTypeSerializer
+from .serializers import VehicleSerializer, VehicleTypeSerializer, ConfigurationTypeSerializer,OrderSerializer
 from .forms import UserForm, OrderForm
 from .models import Order, Client, Vehicle, VehicleType, Configuration
 from rest_framework.views import APIView
@@ -77,6 +77,9 @@ def create_order(request):
         return redirect('login_user')
     else:
         form = OrderForm(request.POST or None)
+        if form.is_valid():
+            order = form.save(commit=False)
+            # order.trackingId =
         context = {
             "form": form,
         }
@@ -99,6 +102,12 @@ class VehicleTypeList(APIView):
 
 class ConfigurationValue(APIView):
     def get(self, request, variable):
-        configuratio = Configuration.objects.filter(variable=variable)
-        serializer = ConfigurationTypeSerializer(configuratio, many=True)
+        configuration = Configuration.objects.filter(variable=variable)
+        serializer = ConfigurationTypeSerializer(configuration, many=True)
+        return Response(serializer.data)
+
+class TrackYourOrder(APIView):
+    def get(self, request, tracking_id):
+        order = Order.objects.filter(trackingId=tracking_id)
+        serializer = OrderSerializer(order, many=True)
         return Response(serializer.data)
