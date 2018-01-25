@@ -40,7 +40,7 @@ class VehicleType(models.Model):
     size = models.CharField(max_length=50)
     cost = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     enabled = models.BooleanField(default=True)
-    vehicle_img=models.FileField(null=True)
+    vehicle_img = models.FileField(null=True)
     createdAt = models.DateTimeField(editable=False)
     updateAt = models.DateTimeField()
 
@@ -81,8 +81,9 @@ class Order(models.Model):
     orderDate = models.DateField(null=False)
     fromTime = models.TimeField(null=False)
     toTime = models.TimeField(null=False)
-    description = models.CharField(max_length=5000,null=True)
-    url=models.CharField(max_length=80,null=True)
+    description = models.CharField(max_length=5000, null=True)
+    url = models.CharField(max_length=80, null=True)
+    enableTracking = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -92,6 +93,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.trackingId
+
 
 class Configuration(models.Model):
     variable = models.CharField(max_length=50)

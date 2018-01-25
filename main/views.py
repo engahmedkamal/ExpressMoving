@@ -1,18 +1,26 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
 from .serializers import VehicleSerializer, VehicleTypeSerializer, ConfigurationTypeSerializer,OrderSerializer
 from .forms import UserForm, OrderForm
 from .models import Order, Client, Vehicle, VehicleType, Configuration
 from rest_framework.views import APIView
 from rest_framework.response import Response
-
+from django.conf import settings
 
 def index(request):
     return render(request, "main/index.html")
 
 
 def about(request):
+    # send_mail(
+    #     'Subject here',
+    #     'Here is the message.',
+    #     'support@myexpressmove.com',
+    #     ['engahmedkamal91@gmail.com'],
+    #     fail_silently=False,
+    # )
     return render(request, "main/about.html")
 
 
@@ -111,3 +119,4 @@ class TrackYourOrder(APIView):
         order = Order.objects.filter(trackingId=tracking_id).first()
         serializer = OrderSerializer(order)
         return Response(serializer.data)
+
