@@ -1,13 +1,15 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404, redirect
-from .serializers import VehicleSerializer, VehicleTypeSerializer, ConfigurationTypeSerializer,OrderSerializer
+from .serializers import VehicleSerializer, VehicleTypeSerializer, ConfigurationTypeSerializer, OrderSerializer
 from .forms import UserForm, OrderForm
 from .models import Order, Client, Vehicle, VehicleType, Configuration
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.conf import settings
+
 
 def index(request):
     return render(request, "main/index.html")
@@ -37,7 +39,7 @@ def contact(request):
 
 
 def feedback(request):
-    #add message to response with success in case of sent
+    # add message to response with success in case of sent
     context = {
         "feedback_sent": True,
     }
@@ -130,9 +132,11 @@ class ConfigurationValue(APIView):
         serializer = ConfigurationTypeSerializer(configuration, many=True)
         return Response(serializer.data)
 
+
 class TrackYourOrder(APIView):
     def get(self, request, tracking_id):
-        order = Order.objects.filter(trackingId=tracking_id).first()
-        serializer = OrderSerializer(order)
+        order = Order.objects.filter(trackingId=tracking_id)
+        if (not order):
+            return Response({})
+        serializer = OrderSerializer(order[0])
         return Response(serializer.data)
-
