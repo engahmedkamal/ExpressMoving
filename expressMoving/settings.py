@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -24,9 +23,17 @@ SECRET_KEY = 'dp^k^s=f@=twxntw^v9b4az*7-=byj#4sd#n1%i=lr)#lfz51('
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+if DEBUG:
+    ALLOWED_HOSTS = []
+else:
+    ALLOWED_HOSTS = ['*']
+EMAIL_HOST = "gator3069.hostgator.com"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "support@myexpressmove.com"
+EMAIL_HOST_PASSWORD = "support123express"
+EMAIL_USE_SSL = True
 
-ALLOWED_HOSTS = []
-
+FACEBOOK_PAGE_ACCESS_TOKEN = "EAAcez0qm090BAHeU7UHwZAGN3JYZAiW3WbUim9WOsfzEZAt4C25x7jnWwigJuJkxZALTWuGeuBoOAV9mjDPxTsMysiTr5EAHa4PXhGg3nYNxaRTYpanPJPaif97dK0VbhF9xreluFNCZAdWIrSt9ZBRPRhrOaGL3dAwRuSRAfD3gZDZD"
 
 # Application definition
 
@@ -38,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -70,7 +78,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'expressMoving.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 # DATABASES = {
@@ -79,17 +86,27 @@ WSGI_APPLICATION = 'expressMoving.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME':    'v2',
+#         'USER': 'root',
+#         'PASSWORD': 'root',
+#         'HOST': 'localhost',
+#         'PORT': '3306'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':    'v2',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'v1',
         'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'PASSWORD': 'root1234',
+        'HOST': 'v1.cofjuisigjbs.us-east-1.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -109,7 +126,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -123,8 +139,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

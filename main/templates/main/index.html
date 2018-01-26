@@ -1,4 +1,610 @@
 {% extends 'main/base.html' %}
+{% block active_index %}current-menu-item{% endblock %}
 {% block body %}
-    helllo
+    <div class="md-content">
+        {% load staticfiles %}
+        <!-- slider -->
+        <div class="slider">
+
+            <!-- carousel__element owl-carousel -->
+            <div class="carousel__element owl-carousel"
+                 data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":0, "autoplay": true, "autoplayTimeout": 7000}'>
+                <div class="slider__item"
+                     style="background-image: url('{% static 'main/assets/img/slider_1.jpeg' %}');">
+                    <div class="md-tb">
+                        <div class="md-tb__cell">
+                            <div class="slider__content">
+                                <div class="container">
+                                    <h2>We are the one stop shop for all your moving services</h2>
+
+                                    {% comment %}<p>A Bootstrap 4 Responsive multi-purpose Theme for the Business, Web agency and
+                                        more!</p>{% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__item"
+                     style="background-image: url('{% static 'main/assets/img/slider_2.jpeg' %}');">
+                    <div class="md-tb">
+                        <div class="md-tb__cell">
+                            <div class="slider__content">
+                                <div class="container">
+                                    <h2>Say goodbye to traditional moving</h2>
+                                    <p>We love our technology. When you hire us, you use your phone app through every
+                                        step, you can also track your orders location untill its delivered to your door
+                                        through our user friendly app.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__item"
+                     style="background-image: url('{% static 'main/assets/img/slider_3.jpeg' %}');">
+                    <div class="md-tb">
+                        <div class="md-tb__cell">
+                            <div class="slider__content">
+                                <div class="container">
+                                    <h2>See how we make it simple</h2>
+                                    <p>800-809-0392</p>
+                                    <p>201-432-3400</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End / carousel__element owl-carousel -->
+
+        </div><!-- End / slider -->
+
+        <!-- Service-->
+
+        <!-- Section -->
+        <section class="md-section" style="background-color:#f7f7f7;padding:0;">
+            <div class="container">
+                <div class="textbox-group">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 ">
+
+                            <!-- textbox -->
+                            <div class="textbox transparent index-boxes">
+                                <h2 class="textbox__title font-family-exo font-size-3em">
+                                    Local <br/> Moving
+                                </h2>
+                                <div class="textbox__image index__textbox__image">
+                                    <i class="fa fa-truck" style="font-size: 10em; color: #f39c12;"
+                                       aria-hidden="true"></i>
+                                </div>
+                                <div class="textbox__body">
+                                    <h2 class="textbox__title font-family-exo">How to prepare for our arrival</h2>
+                                    <div class="textbox__description font-family-exo">
+                                        Track your driver from the moment they leave out facility till your job is
+                                        delivered.
+                                    </div>
+                                    <div class="textbox__description font-family-exo">
+                                        download app now
+                                    </div>
+                                </div>
+                            </div><!-- End / textbox -->
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 ">
+
+                            <!-- textbox -->
+                            <div class="textbox transparent  index-boxes">
+                                <h2 class="textbox__title font-family-exo font-size-3em">
+                                    Long Distance Moving
+                                </h2>
+                                <div class="textbox__image index__textbox__image">
+                                    <i class="fa fa-map-signs" style="font-size: 10em; color: #f39c12;"
+                                       aria-hidden="true"></i>
+                                </div>
+                                <div class="textbox__body">
+                                    <h2 class="textbox__title font-family-exo">Learn which supplies your need and order all
+                                        your supplies here</h2>
+                                    <div class="textbox__description font-family-exo">Once our moving pros arrive till they leave every
+                                        step is shown in our user friendly app.
+                                    </div>
+                                </div>
+                            </div><!-- End / textbox -->
+
+                        </div>
+                        <div class="col-md-4 col-lg-4 ">
+
+                            <!-- textbox -->
+                            <div class="textbox transparent index-boxes">
+                                <h2 class="textbox__title font-family-exo font-size-3em">
+                                    Commercial Relocation
+                                </h2>
+                                <div class="textbox__image">
+                                    <i class="fa fa-industry" style="font-size: 10em; color: #f39c12;"
+                                       aria-hidden="true"></i>
+                                </div>
+                                <div class="textbox__body">
+                                    <h2 class="textbox__title font-family-exo">Our proffesional will know ahead of time
+                                        exactly where to place your items</h2>
+                                    <div class="textbox__description font-family-exo">
+                                        Try our blue print solution it allows you to upload your blue prints of your
+                                        pickup and drop off location.
+                                    </div>
+                                </div>
+                            </div><!-- End / textbox -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End / Section -->
+
+
+        <!-- Section -->
+        <section class="md-section" style="background-color:#f7f7f7;padding-top:0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 offset-0 offset-sm-0 offset-md-1 offset-lg-2 ">
+
+                        <!-- iconbox -->
+                        <div class="iconbox">
+                            <div class="iconbox__icon"><i class="ti-headphone-alt" style="font-size: 4em;"></i></div>
+                            <div>
+                                <h2 class="iconbox__title">24/7 Customer Support</h2>
+                                <div class="iconbox__description">
+                                    Our representatives are well knowledgable and always witing to assist 24 hours, 7
+                                    days a week, all year round.
+                                </div>
+                                <div class="iconbox__description">
+                                    We take extreme pride in everything that involves our operations.
+                                </div>
+                            </div>
+                        </div><!-- End / iconbox -->
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-3 ">
+
+                        <!-- iconbox -->
+                        <div class="iconbox iconbox__style-02">
+                            <div class="iconbox__icon"><i class="fa fa-users"
+                                                          style="font-size: 2em; padding-top: 15px;"></i></div>
+                            <div>
+                                <h2 class="iconbox__title">Our Team</h2>
+                                <div class="textbox__description">
+                                    All of our moving team must pass a CBT examination which therally educates them on
+                                    proper methods of packaging, boxing, wrapping and handling of your houseloads goods.
+                                </div>
+                                <div class="textbox__description">
+                                    In order to insure flawless handling of your stuff, and more importantly thier own
+                                    safety.
+                                </div>
+                            </div>
+                        </div><!-- End / iconbox -->
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 ">
+
+                        <!-- iconbox -->
+                        <div class="iconbox iconbox__style-02">
+                            <div class="iconbox__icon"><i class="fa fa-truck"
+                                                          style="font-size: 2em; padding-top: 15px;"></i></div>
+                            <div>
+                                <h2 class="iconbox__title">Our Equipments</h2>
+                                <div class="textbox__description">
+                                    Our trucks are equipped differently than others, we implement technology to enhance
+                                    our drivers and movers. Not to mention we do our best at keeping it spotless.
+                                </div>
+                                <div class="textbox__description">
+                                    Curious how we added technology to our trucks?
+                                </div>
+                                <div class="textbox__description">
+                                    Ask the driver when our team shows up for your move and he/she will be excited to
+                                    show you.
+                                </div>
+                            </div>
+                        </div><!-- End / iconbox -->
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 ">
+
+                        <!-- iconbox -->
+                        <div class="iconbox iconbox__style-02">
+                            <div class="iconbox__icon"><i class="fa fa-trash" style="font-size: 2em; padding-top: 15px;"></i></div>
+                            <div>
+                                <h2 class="iconbox__title">Easy Disposal</h2>
+                                <div class="textbox__description">
+                                    We leave our work area spotless.
+                                </div>
+                                <div class="textbox__description">
+                                    Once our movers unpack your items, they will collect all the material and pack it in
+                                    a box for you for easy disposal.
+                                </div>
+
+                            </div>
+                        </div><!-- End / iconbox -->
+
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-3 ">
+
+                        <!-- iconbox -->
+                        <div class="iconbox iconbox__style-02">
+                            <div class="iconbox__icon"><i class="fa fa-location-arrow" style="font-size: 2em; padding-top: 15px;"></i></div>
+                            <div>
+                                <h2 class="iconbox__title">Tracking</h2>
+                                <div class="textbox__description">
+                                    Our phone apps allow you to monitor the truck from time of pickup till your job is dropped off.
+                                </div>
+                                <div class="textbox__description">
+                                    you can also see how long the job took and accurate cost realtime while our movers are working.
+                                </div>
+                            </div>
+                        </div><!-- End / iconbox -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End / Section -->
+
+        {% comment %}<!-- About-->
+
+        <!-- Section -->
+        <section class="md-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 ">
+
+                        <!-- title-01 -->
+                        <div class="title-01 title-01__style-03 md-text-left">
+                            <h6 class="title-01__subTitle">about</h6>
+                            <h2 class="title-01__title">We Are The Leaders In This Industry</h2>
+                            <div>Nam suscipit nisi risus, et porttitor metus molestie a. Phasellus id quam id turpis
+                                suscipit pretium. Maecenas ultrices, lacus ut accumsan maximus, odio augue rhoncus
+                                augue, vulputate maximus mi sapien sed nisl. Sed fermentum congue orci sed lacinia.
+                                Nulla nunc purus, consectetur
+                            </div>
+                        </div><!-- End / title-01 -->
+
+                        <div class="row">
+                            <div class="col-sm-4 ">
+
+                                <!-- box-number -->
+                                <div class="box-number">
+                                    <div class="box-number__number">
+                                        <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">99</h2>
+                                    </div>
+                                    <div class="box-number__description">Happy clients</div>
+                                </div><!-- End / box-number -->
+
+                            </div>
+                            <div class="col-sm-4 ">
+
+                                <!-- box-number -->
+                                <div class="box-number">
+                                    <div class="box-number__number">
+                                        <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">
+                                            1200</h2>
+                                    </div>
+                                    <div class="box-number__description">Message per Day</div>
+                                </div><!-- End / box-number -->
+
+                            </div>
+                            <div class="col-sm-4 ">
+
+                                <!-- box-number -->
+                                <div class="box-number">
+                                    <div class="box-number__number">
+                                        <h2 class="js-counter" data-counter-time="2000" data-counter-delay="10">15</h2>
+                                    </div>
+                                    <div class="box-number__description">Awards</div>
+                                </div><!-- End / box-number -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="js-consult-slider">
+
+                            <!-- carousel__element owl-carousel -->
+                            <div class="carousel__element owl-carousel"
+                                 data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":30,"responsive":{"0":{"items":2},"576":{"items":3},"992":{"items":1}}}'>
+                                <div class="image-full"><img src="{% static 'main/assets/img/image-01.jpg' %}" alt="">
+                                </div>
+                                <div class="image-full"><img src="{% static 'main/assets/img/image-02.jpg' %}" alt="">
+                                </div>
+                            </div><!-- End / carousel__element owl-carousel -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End / Section -->{% endcomment %}
+
+        <!-- Contact us-->
+
+        <!-- Section -->
+        <section class="md-section md-skin-dark js-consult-form"
+                 style="background-image:url(&quot;{% static 'main/assets/img/backgrounds/1.jpg' %}&quot;);'">
+            <div class="md-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-0 offset-sm-0 offset-md-0 offset-lg-2 ">
+
+                        <!-- title-01 -->
+                        <div class="title-01 title-01__style-02">
+                            <h2 class="title-01__title">Call us now</h2>
+                        </div>
+                        <!-- End / title-01 -->
+
+                        <div class="consult-phone">800-809-0392</div>
+                        <div class="consult-phone">201-432-3400</div>
+                    </div>
+                </div>
+
+                <!-- form-01 -->
+                <div class="form-01 consult-form js-consult-form__content">
+                    {% if feedback_sent == None or not feedback_sent %}
+                        <h2 class="form-01__title">Give Us Your Feedback</h2>
+                        <form class="form-01__form" action='{% url 'feedback' %}' method="POST">
+                            {% csrf_token %}
+                            <div class="form__item form__item--03">
+                                <input type="text" name="name" placeholder="Your name"/>
+                            </div>
+                            <div class="form__item form__item--03">
+                                <input type="text" name="phone" placeholder="Your Phone"/>
+                            </div>
+                            <div class="form__item form__item--03">
+                                <input type="email" name="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form__item">
+                                <textarea rows="3" name="Your message" placeholder="Your message"></textarea>
+                            </div>
+                            <div class="form__button"><input type="submit" class="btn btn-primary btn-w180" value="send
+                                message">send message</input>
+                            </div>
+                        </form>
+                    {% else %}
+                        <h2 class="form-01__title">
+                            Thank you for your feedback
+                        </h2>
+                    {% endif %}
+                </div><!-- End / form-01 -->
+
+            </div>
+        </section>
+        <!-- End / Section -->
+
+        <!-- What’s Client Say ?-->
+
+        <!-- Section -->
+        <section class="md-section" style="padding-bottom:0;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                        <!-- title-01 -->
+                        <div class="title-01" style="margin-bottom:50px;">
+                            <h2 class="title-01__title">What’s Clients Say?</h2>
+                        </div><!-- End / title-01 -->
+
+                    </div>
+                </div>
+                <div class="consult-slide">
+
+                    <!-- carousel__element owl-carousel -->
+                    <div class="carousel__element owl-carousel"
+                         data-options='{"loop":true,"dots":true,"nav":false,"margin":30,"responsive":{"0":{"items":1},"992":{"items":2}}}'>
+
+                        <!-- testimonial -->
+                        <div class="testimonial">
+
+                            <!-- video -->
+                            <div class="video" data-init="video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/VlMqx6Jssus"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="video-content">
+
+                                    <div class="video-inner">
+                                        <div class="video-button"><i class="fa fa-play"></i></div>
+                                    </div>
+                                </div>
+                            </div><!-- End / video -->
+
+                        </div><!-- End / testimonial -->
+
+                        <!-- testimonial -->
+                        <div class="testimonial">
+
+                            <!-- video -->
+                            <div class="video" data-init="video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/mi2jrLumAxQ"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="video-content">
+
+                                    <div class="video-inner">
+                                        <div class="video-button"><i class="fa fa-play"></i></div>
+                                    </div>
+                                </div>
+                            </div><!-- End / video -->
+
+
+                        </div><!-- End / testimonial -->
+
+                        <!-- testimonial -->
+                        <div class="testimonial">
+
+                            <!-- video -->
+                            <div class="video" data-init="video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/uxTZxZV6DCY"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="video-content">
+
+                                    <div class="video-inner">
+                                        <div class="video-button"><i class="fa fa-play"></i></div>
+                                    </div>
+                                </div>
+                            </div><!-- End / video -->
+
+
+                        </div><!-- End / testimonial -->
+
+                    </div><!-- End / carousel__element owl-carousel -->
+
+                </div>
+            </div>
+        </section>
+        <!-- End / Section -->
+
+        {% comment %}<!-- Our partner-->
+
+        <!-- Section -->
+        <section class="md-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                        <!-- title-01 -->
+                        <div class="title-01">
+                            <h2 class="title-01__title">Our Partner</h2>
+                        </div><!-- End / title-01 -->
+
+                    </div>
+                </div>
+
+                <!-- carousel__element owl-carousel -->
+                <div class="carousel__element owl-carousel"
+                     data-options='{"loop":true,"dots":false,"nav":true,"margin":30,"responsive":{"0":{"items":2},"768":{"items":3},"992":{"items":5}}}'>
+
+                    <!--  -->
+                    <div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/1.png' %}" alt=""/>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/2.png' %}" alt=""/>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/3.png' %}" alt=""/>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/4.png' %}" alt=""/>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/5.png' %}" alt=""/>
+                        </div>
+                    </div><!-- End /  -->
+
+                </div><!-- End / carousel__element owl-carousel -->
+
+            </div>
+        </section>
+        <!-- End / Section -->{% endcomment %}
+
+        {% comment %}<!-- Latest Blogs -->
+
+        <!-- Section -->
+        <section class="md-section consult-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+
+                        <!-- title-01 -->
+                        <div class="title-01">
+                            <h2 class="title-01__title">Latest Blogs</h2>
+                        </div><!-- End / title-01 -->
+
+                    </div>
+                </div>
+
+                <!-- carousel__element owl-carousel -->
+                <div class="carousel__element owl-carousel"
+                     data-options='{"loop":false,"dots":false,"nav":true,"margin":30,"responsive":{"0":{"items":1},"768":{"items":2},"992":{"items":3}}}'>
+
+                    <!--  -->
+                    <div>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-1.jpg' %}" alt=""/></a>
+                        </div>
+                        <div>
+                            <ul class="post-01__categories">
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                            <div class="post-01__time">Nov 16, 2017</div>
+                            <div class="post-01__note">by Bryan Ryan</div>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-2.jpg' %}" alt=""/></a>
+                        </div>
+                        <div>
+                            <ul class="post-01__categories">
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                            <h2 class="post-01__title"><a href="#">Getting Started with Vue.Js</a></h2>
+                            <div class="post-01__time">Nov 4, 2017</div>
+                            <div class="post-01__note">by Ashley Mills</div>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-3.jpg' %}" alt=""/></a>
+                        </div>
+                        <div>
+                            <ul class="post-01__categories">
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                            <h2 class="post-01__title"><a href="#">How to Create and Manage SVG Sprites</a></h2>
+                            <div class="post-01__time">Nov 21, 2017</div>
+                            <div class="post-01__note">by Alan Lane</div>
+                        </div>
+                    </div><!-- End /  -->
+
+
+                    <!--  -->
+                    <div>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-4.jpg' %}" alt=""/></a>
+                        </div>
+                        <div>
+                            <ul class="post-01__categories">
+                                <li><a href="#">Business</a></li>
+                            </ul>
+                            <h2 class="post-01__title"><a href="#">Free Sketch Plugins</a></h2>
+                            <div class="post-01__time">Nov 2, 2017</div>
+                            <div class="post-01__note">by Alan Lane</div>
+                        </div>
+                    </div><!-- End /  -->
+
+                </div><!-- End / carousel__element owl-carousel -->
+
+            </div>
+        </section>
+        <!-- End / Section -->{% endcomment %}
+
+    </div>
+
 {% endblock %}

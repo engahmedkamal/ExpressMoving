@@ -1,42 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>MyExpressMoving</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'main/homeStyle.css' %}">
+    <head>
+        <title>{% block title %}Home{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        {% load staticfiles %}
+        <!-- Fonts-->
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/fonts/fontawesome/font-awesome.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/fonts/themify-icons/themify-icons.css' %}">
+        <!-- Vendors-->
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'main/assets/vendors/bootstrap4/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'main/assets/vendors/magnific-popup/magnific-popup.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/owl.carousel/owl.carousel.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/jquery.ui/jquery-ui.min.css' %}">
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'main/assets/vendors/jQuery.ui.timepicker/jquery-ui-timepicker-addon.min.css' %}">
+        <!-- App & fonts-->
+        <link rel="stylesheet" type="text/css"
+              href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/custom.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+
+    </head>
 </head>
 <body>
-<nav class="navbar navbar-expand-md bg-dark navbar-dark">
-    <a class="navbar-brand" href="#">My Express Moving</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link " href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">Track your order</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact Us</a>
-            </li>
-        </ul>
-        <ul class="nav navbar-nav mr-auto mt-2 mt-lg-0 navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-</nav>
-{% block body %}
+<div class="page-wrap">
+
+    <!-- header -->
+    <header class="header {% block headerStyle %}header__style-02{% endblock %}">
+        <div class="container">
+            <div class="header__logo">
+                <a href="/">
+                    My Express Service
+                </a>
+                {% comment %}    <a href="{% url 'index' %}"><img src="{% static 'main/assets/img/logo.png' %}"
+                                                                       alt=""/></a>{% endcomment %}
+            </div>
+            <div class="header__toogleGroup">
+                <div class="search-form">
+                    <div class="search-form__toggle">TRACK YOUR ORDER <i class="ti-search"></i></div>
+                    <div class="search-form__form">
+                        <div class="form-search">
+                            <form role="search" method="get" action="{% url 'track_your_order' %}">
+                                <input class="form-control" type="text" name="tracking_id"
+                                       value="{{ request.GET.tracking_id }}"
+                                       placeholder="Enter the Tracking Number and Hit enter to search or ESC to close"/>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- consult-nav -->
+            <nav class="consult-nav">
+
+                <!-- consult-menu -->
+                <ul class="consult-menu">
+                    <li class="{% block active_index %}{% endblock %}"><a href="{% url 'index' %}">Home</a>
+                    </li>
+                    <li class="{% block active_about %}{% endblock %}"><a href="{% url 'about' %}">about</a>
+                    </li>
+                    <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contact' %}">contact</a>
+                    </li>
+                    {% if not user.is_authenticated %}
+                        <li class="{% block active_register %}{% endblock %}"><a href="{% url 'register' %}">sign up</a>
+                        </li>
+                        <li class="{% block active_login %}{% endblock %}"><a href="{% url 'login_user' %}">login</a>
+                        </li>
+                    {% else %}
+                        <li class="{% block active_create_order %}{% endblock %}"><a href="{% url 'create_order' %}">Create
+                            Order</a>
+                        </li>
+                        <li class="{% block active_logout %}{% endblock %}"><a href="{% url 'logout_user' %}">log
+                            out</a>
+                        </li>
+                    {% endif %}
+                </ul><!-- consult-menu -->
+
+                <div class="navbar-toggle"><span></span><span></span><span></span></div>
+            </nav><!-- End / consult-nav -->
+
+        </div>
+    </header><!-- End / header -->
+
+    <!-- Content-->
+    {% block body %}
+    {% endblock %}
+    <!-- End / Content-->
+    {% block footer %}
+        <!-- footer -->
+        <footer class="footer">
+            <div class="footer__main">
+                <div class="row " style="max-height: 250px;">
+                    <div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
+                        <div class="footer__item"><a class="consult_logo" href="#"><img
+                                src="{% static 'main/assets/img/logo.png' %}"
+                                alt=""/></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
+                        <div class="footer__item">
+
+                            <!-- widget-text__widget -->
+                            <section class="widget-text__widget widget">
+                                <div class="widget-text__content">
+                                    <ul>
+                                        <li><a href="{% url 'terms_and_conditions' %}">Terms and conditions </a></li>
+                                        <li><a href="{% url 'privacy_policy' %}">Privacy Policy </a></li>
+                                        {% comment %}<li><a href="#">Sitemap </a></li>{% endcomment %}
+                                        {% comment %}<li><a href="#">Help</a></li>{% endcomment %}
+                                    </ul>
+                                </div>
+                            </section><!-- End / widget-text__widget -->
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-1 col-xl-1 ">
+                        <div class="footer__item">
+
+                            <!-- widget-text__widget -->
+                            <section class="widget-text__widget widget">
+                                <div class="widget-text__content">
+                                    <ul>
+                                        {% comment %}<li><a href="#">How It Work </a></li>
+                                        <li><a href="#">Carrier </a></li>
+                                        <li><a href="#">Pricing </a></li>{% endcomment %}
+                                        <li><a href="{% url 'contact' %}">Support</a></li>
+                                    </ul>
+                                </div>
+                            </section><!-- End / widget-text__widget -->
+
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xl-3 ">
+                        <div class="footer__item">
+
+                            <div class="footer__item" style="margin-bottom: 0px;">
+                                Find Us
+                            </div>
+
+                            <div class="footer__item">
+                                <a class="social-01__item" href="https://www.facebook.com/myexpressservice/"
+                                   target="_blank"><i
+                                        class="fa fa-facebook" style="font-size: 3em;"></i>
+                                </a>
+                                <a class="social-01__item" href="https://www.instagram.com/myexpressservice/"
+                                   target="_blank"><i
+                                        class="fa fa-instagram" style="font-size: 3em;"></i>
+                                </a>
+                                <a class="social-01__item"
+                                   href="https://www.youtube.com/channel/UCPCIQIjS9T372oO_oY8lINA" target="_blank"><i
+                                        class="fa fa-youtube" style="font-size: 3em;"></i>
+                                </a>
+                            </div>
+
+                            {% comment %}<!-- form-sub -->
+                            <div class="form-sub">
+                                <h4 class="form-sub__title">Our Newsletter</h4>
+                                <form class="form-sub__form">
+                                    <div class="form-item">
+                                        <input class="form-control" type="email"
+                                               placeholder="Enter Your Email Address..."/>
+                                    </div>
+                                    <div class="form-submit">
+                                        <button class="form-button" type="submit"><i class="fa fa-paper-plane"
+                                                                                     aria-hidden="true"></i></button>
+                                    </div>
+                                </form>
+                            </div><!-- End / form-sub -->{% endcomment %}
+
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2  consult_backToTop">
+                        <div class="footer__item"><a href="#" id="back-to-top"> <i class="fa fa-angle-up"
+                                                                                   aria-hidden="true"> </i><span>Back To Top</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__copyright">2018 &copy; Copyright My Express Service LLC. All rights Reserved.</div>
+        </footer><!-- End / footer -->
+    {% endblock %}
+</div>
+<!-- Vendors-->
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/imagesloaded/imagesloaded.pkgd.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/isotope-layout/isotope.pkgd.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countTo/jquery.countTo.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.countUp/jquery.countup.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.matchHeight/jquery.matchHeight.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/masonry-layout/masonry.pkgd.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/owl.carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jquery.waypoints/jquery.waypoints.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/menu/menu.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/smoothscroll/SmoothScroll.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jQuery.ui.timepicker/jquery-ui-timepicker-addon.min.js' %}"></script>
+<!-- App-->
+<script type="text/javascript" src="{% static 'main/assets/js/main.js' %}"></script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".datepicker").datepicker({
+            showButtonPanel: true,
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $(".timepicker").timepicker();
+
+        $('.magnific-popup').magnificPopup({type: 'image'});
+    });
+
+</script>
+
+
+<!-- footer javascript-->
+{% block footerJavascript %}
 {% endblock %}
+<!-- End / footer javascript-->
 
 </body>
 </html>

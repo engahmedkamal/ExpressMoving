@@ -15,11 +15,25 @@ Including another URLconf
 """
 from django.conf.urls import url
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    # url(r'^track_your_order/(?P<tracking_id>[0-9]+)$', views.OrderDetailView.as_view(), name='track_your_order'),
+    url(r'^about', views.about, name='about'),
+    url(r'^contact', views.contact, name='contact'),
+    url(r'^track_your_order/$', views.track_your_order, name='track_your_order'),
+    url(r'^createNewOrder/', views.create_order, name='create_order'),
     url(r'^register/$', views.register, name='register'),
     url(r'^login_user/$', views.login_user, name='login_user'),
     url(r'^logout_user/$', views.logout_user, name='logout_user'),
+    url(r'^vehiclelist/$', views.VehicleList.as_view()),
+    url(r'^vehicleTypelist/(?P<vehicle_id>[0-9]+)$', views.VehicleTypeList.as_view()),
+    url(r'^config/(?P<variable>\w+)$', views.ConfigurationValue.as_view()),
+    url(r'^trackYourOrder/(?P<tracking_id>\w+)$', views.TrackYourOrder.as_view()),
+    url(r'^terms_and_conditions', views.terms_and_conditions, name='terms_and_conditions'),
+    url(r'^privacy_policy', views.privacy_policy, name='privacy_policy'),
+    url(r'^feedback', views.feedback, name='feedback'),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)

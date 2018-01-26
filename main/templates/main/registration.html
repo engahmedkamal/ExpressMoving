@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% block title %}Sign up{% endblock %}
+{% block headerStyle %}{% endblock %}
+{% block active_register %}current-menu-item{% endblock %}
+{% block body %}
+    <div class="md-content">
+
+        <!-- Section -->
+        <section class="md-section">
+            <div class="container">
+                <form class="form-horizontal" action='{% url 'register' %}' method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Register</legend>
+                        </div>
+                        {% include 'main/form_template.html' %}
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success">Register</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </div>
+{% endblock %}

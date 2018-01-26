@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% block title %}Schedule New Order{% endblock %}
+{% block headerStyle %}{% endblock %}
+{% block active_create_order %}current-menu-item{% endblock %}
+{% block body %}
+    <div class="md-content">
+        <section class="md-section">
+            <div class="container">
+                <form class="form-horizontal" action='{% url 'register' %}' method="POST">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div id="legend">
+                            <legend class="">Schedule New Order</legend>
+                        </div>
+{#                        <div class="control-group">#}
+{#                            <label class="control-label" for="orderType">Order type:</label>#}
+{#                            <div class="controls">#}
+{#                                 <label class="radio-inline">#}
+{#                                <input type="radio" name="orderType" value="Local" checked>Local Within New Jersey#}
+{#                            </label>#}
+{#                            <label class="radio-inline">#}
+{#                                <input type="radio" name="orderType" disabled>Long Distance Not available online please contact us#}
+{#                            </label>#}
+{#                            </div>#}
+{#                        </div>#}
+                        {% include 'main/form_template.html' %}
+
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+                                <button class="btn btn-success">CheckOut</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </section>
+    </div>
+{% endblock %}
