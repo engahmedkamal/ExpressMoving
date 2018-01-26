@@ -26,6 +26,11 @@
               href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
         <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/main.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/custom.css' %}">
+
+        <link href="https://fonts.googleapis.com/css?family=Merienda+One" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet">
+
     </head>
 </head>
 <body>
@@ -34,8 +39,13 @@
     <!-- header -->
     <header class="header {% block headerStyle %}header__style-02{% endblock %}">
         <div class="container">
-            <div class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'main/assets/img/logo.png' %}"
-                                                                       alt=""/></a></div>
+            <div class="header__logo">
+                <a href="/">
+                    My Express Service
+                </a>
+                {% comment %}    <a href="{% url 'index' %}"><img src="{% static 'main/assets/img/logo.png' %}"
+                                                                       alt=""/></a>{% endcomment %}
+            </div>
             <div class="header__toogleGroup">
                 <div class="search-form">
                     <div class="search-form__toggle">TRACK YOUR ORDER <i class="ti-search"></i></div>
@@ -91,7 +101,7 @@
         <!-- footer -->
         <footer class="footer">
             <div class="footer__main">
-                <div class="row row-eq-height">
+                <div class="row " style="max-height: 250px;">
                     <div class="col-8 col-sm-7 col-md-9 col-lg-3 ">
                         <div class="footer__item"><a class="consult_logo" href="#"><img
                                 src="{% static 'main/assets/img/logo.png' %}"
@@ -115,7 +125,7 @@
 
                         </div>
                     </div>
-                    <div class="col-sm-6 col-md-4 col-lg-2 col-xl-2 ">
+                    <div class="col-sm-6 col-md-4 col-lg-1 col-xl-1 ">
                         <div class="footer__item">
 
                             <!-- widget-text__widget -->
@@ -132,8 +142,27 @@
 
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-2 col-xl-2 ">
+                    <div class="col-md-4 col-lg-3 col-xl-3 ">
                         <div class="footer__item">
+
+                            <div class="footer__item" style="margin-bottom: 0px;">
+                                Find Us
+                            </div>
+
+                            <div class="footer__item">
+                                <a class="social-01__item" href="https://www.facebook.com/myexpressservice/"
+                                   target="_blank"><i
+                                        class="fa fa-facebook" style="font-size: 3em;"></i>
+                                </a>
+                                <a class="social-01__item" href="https://www.instagram.com/myexpressservice/"
+                                   target="_blank"><i
+                                        class="fa fa-instagram" style="font-size: 3em;"></i>
+                                </a>
+                                <a class="social-01__item"
+                                   href="https://www.youtube.com/channel/UCPCIQIjS9T372oO_oY8lINA" target="_blank"><i
+                                        class="fa fa-youtube" style="font-size: 3em;"></i>
+                                </a>
+                            </div>
 
                             {% comment %}<!-- form-sub -->
                             <div class="form-sub">
@@ -159,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer__copyright">2017 &copy; Copyright My Express Service LLC. All rights Reserved.</div>
+            <div class="footer__copyright">2018 &copy; Copyright My Express Service LLC. All rights Reserved.</div>
         </footer><!-- End / footer -->
     {% endblock %}
 </div>

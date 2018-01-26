@@ -23,6 +23,44 @@ p.text.margin-bottom-small {
     margin-bottom: 15px;
 }
 
-.textbox__title:hover {
+.textbox__title:hover, .header__logo a {
     color: #f39c12;
+}
+
+.footer__main {
+    padding: 30px;
+}
+
+.textbox-group {
+    position: relative;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+
+}
+
+.header__logo {
+    max-width: 250px;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Old Standard TT', cursive;
+}
+
+.textbox.transparent {
+    background: transparent;
+}
+
+.font-family-exo {
+    font-family: 'Exo', sans-serif;
+}
+
+.font-size-3em {
+    font-size: 3em;
+}
+
+.index-boxes {
+    min-height: 550px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 15px;
+    border-color: #e6e6e6;
 }
