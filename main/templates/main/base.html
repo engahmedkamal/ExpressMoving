@@ -18,10 +18,14 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'main/assets/vendors/magnific-popup/magnific-popup.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/owl.carousel/owl.carousel.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/vendors/jquery.ui/jquery-ui.min.css' %}">
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'main/assets/vendors/jQuery.ui.timepicker/jquery-ui-timepicker-addon.min.css' %}">
         <!-- App & fonts-->
         <link rel="stylesheet" type="text/css"
               href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
         <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/main.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main/assets/css/custom.css' %}">
     </head>
 </head>
 <body>
@@ -31,7 +35,7 @@
     <header class="header {% block headerStyle %}header__style-02{% endblock %}">
         <div class="container">
             <div class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'main/assets/img/logo.png' %}"
-                                                                alt=""/></a></div>
+                                                                       alt=""/></a></div>
             <div class="header__toogleGroup">
                 <div class="search-form">
                     <div class="search-form__toggle">TRACK YOUR ORDER <i class="ti-search"></i></div>
@@ -58,17 +62,19 @@
                     </li>
                     <li class="{% block active_contact %}{% endblock %}"><a href="{% url 'contact' %}">contact</a>
                     </li>
-                {% if not user.is_authenticated %}
-                    <li class="{% block active_register %}{% endblock %}"><a href="{% url 'register' %}">sign up</a>
-                    </li>
-                    <li class="{% block active_login %}{% endblock %}"><a href="{% url 'login_user' %}">login</a>
-                    </li>
-                {% else %}
-                    <li class="{% block active_create_order %}{% endblock %}"><a href="{% url 'create_order' %}">Create Order</a>
-                    </li>
-                    <li class="{% block active_logout %}{% endblock %}"><a href="{% url 'logout_user' %}">log out</a>
-                    </li>
-                {% endif %}
+                    {% if not user.is_authenticated %}
+                        <li class="{% block active_register %}{% endblock %}"><a href="{% url 'register' %}">sign up</a>
+                        </li>
+                        <li class="{% block active_login %}{% endblock %}"><a href="{% url 'login_user' %}">login</a>
+                        </li>
+                    {% else %}
+                        <li class="{% block active_create_order %}{% endblock %}"><a href="{% url 'create_order' %}">Create
+                            Order</a>
+                        </li>
+                        <li class="{% block active_logout %}{% endblock %}"><a href="{% url 'logout_user' %}">log
+                            out</a>
+                        </li>
+                    {% endif %}
                 </ul><!-- consult-menu -->
 
                 <div class="navbar-toggle"><span></span><span></span><span></span></div>
@@ -90,8 +96,6 @@
                         <div class="footer__item"><a class="consult_logo" href="#"><img
                                 src="{% static 'main/assets/img/logo.png' %}"
                                 alt=""/></a>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet ut lacus a
-                                tincidunt.</p>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2 offset-0 offset-sm-0 offset-md-0 offset-lg-0 offset-xl-1 ">
@@ -101,10 +105,10 @@
                             <section class="widget-text__widget widget">
                                 <div class="widget-text__content">
                                     <ul>
-                                        <li><a href="#">Term of Services </a></li>
-                                        <li><a href="#">Privacy Policy </a></li>
-                                        <li><a href="#">Sitemap </a></li>
-                                        <li><a href="#">Help</a></li>
+                                        <li><a href="{% url 'terms_and_conditions' %}">Terms and conditions </a></li>
+                                        <li><a href="{% url 'privacy_policy' %}">Privacy Policy </a></li>
+                                        {% comment %}<li><a href="#">Sitemap </a></li>{% endcomment %}
+                                        {% comment %}<li><a href="#">Help</a></li>{% endcomment %}
                                     </ul>
                                 </div>
                             </section><!-- End / widget-text__widget -->
@@ -118,10 +122,10 @@
                             <section class="widget-text__widget widget">
                                 <div class="widget-text__content">
                                     <ul>
-                                        <li><a href="#">How It Work </a></li>
+                                        {% comment %}<li><a href="#">How It Work </a></li>
                                         <li><a href="#">Carrier </a></li>
-                                        <li><a href="#">Pricing </a></li>
-                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Pricing </a></li>{% endcomment %}
+                                        <li><a href="{% url 'contact' %}">Support</a></li>
                                     </ul>
                                 </div>
                             </section><!-- End / widget-text__widget -->
@@ -131,7 +135,7 @@
                     <div class="col-md-4 col-lg-2 col-xl-2 ">
                         <div class="footer__item">
 
-                            <!-- form-sub -->
+                            {% comment %}<!-- form-sub -->
                             <div class="form-sub">
                                 <h4 class="form-sub__title">Our Newsletter</h4>
                                 <form class="form-sub__form">
@@ -144,7 +148,7 @@
                                                                                      aria-hidden="true"></i></button>
                                     </div>
                                 </form>
-                            </div><!-- End / form-sub -->
+                            </div><!-- End / form-sub -->{% endcomment %}
 
                         </div>
                     </div>
@@ -155,7 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer__copyright">2017 &copy; Copyright Awe7. All rights Reserved.</div>
+            <div class="footer__copyright">2017 &copy; Copyright My Express Service LLC. All rights Reserved.</div>
         </footer><!-- End / footer -->
     {% endblock %}
 </div>
@@ -179,7 +183,36 @@
         src="{% static 'main/assets/vendors/jquery.waypoints/jquery.waypoints.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'main/assets/vendors/menu/menu.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'main/assets/vendors/smoothscroll/SmoothScroll.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'main/assets/vendors/jquery.ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript"
+        src="{% static 'main/assets/vendors/jQuery.ui.timepicker/jquery-ui-timepicker-addon.min.js' %}"></script>
 <!-- App-->
 <script type="text/javascript" src="{% static 'main/assets/js/main.js' %}"></script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $(".datepicker").datepicker({
+            showButtonPanel: true,
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: 'dd/mm/yy'
+        });
+
+        $(".timepicker").timepicker();
+
+        $('.magnific-popup').magnificPopup({type: 'image'});
+    });
+
+</script>
+
+
+<!-- footer javascript-->
+{% block footerJavascript %}
+{% endblock %}
+<!-- End / footer javascript-->
+
 </body>
 </html>

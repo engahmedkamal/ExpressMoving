@@ -1,0 +1,28 @@
+.ui-datepicker-month,
+.ui-datepicker-year {
+    padding: 0 10px;
+    height: inherit;
+}
+
+.index__textbox__image {
+    max-height: 200px;
+}
+
+.textbox__description {
+    color: #6f6969;
+}
+
+@media (min-width: 992px) {
+    .textbox__body {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+p.text.margin-bottom-small {
+    margin-bottom: 15px;
+}
+
+.textbox__title:hover {
+    color: #f39c12;
+}

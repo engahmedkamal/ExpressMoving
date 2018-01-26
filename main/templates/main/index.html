@@ -9,28 +9,45 @@
             <!-- carousel__element owl-carousel -->
             <div class="carousel__element owl-carousel"
                  data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":0, "autoplay": true, "autoplayTimeout": 3000}'>
-                <div class="slider__item" style="background-image: url('{% static 'main/assets/img/slider_1.jpeg' %}');">
+                <div class="slider__item"
+                     style="background-image: url('{% static 'main/assets/img/slider_1.jpeg' %}');">
                     <div class="md-tb">
                         <div class="md-tb__cell">
                             <div class="slider__content">
                                 <div class="container">
-                                    <h2>We provide free template</h2>
-                                    <p>A Bootstrap 4 Responsive multi-purpose Theme for the Business, Web agency and
-                                        more!</p>
+                                    <h2>We are the one stop shop for all your moving services</h2>
+
+                                    {% comment %}<p>A Bootstrap 4 Responsive multi-purpose Theme for the Business, Web agency and
+                                        more!</p>{% endcomment %}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="slider__item" style="background-image: url('{% static 'main/assets/img/slider_2.jpeg' %}');">
+                <div class="slider__item"
+                     style="background-image: url('{% static 'main/assets/img/slider_2.jpeg' %}');">
                     <div class="md-tb">
                         <div class="md-tb__cell">
                             <div class="slider__content">
                                 <div class="container">
-                                    <h2>We create the trend</h2>
-                                    <p>Curabitur elementum urna augue, eu porta purus gravida in. Cras consectetur,
-                                        lorem a cursus vestibulum, ligula purus iaculis nulla, in dignissim risus turpis
-                                        id justo. Sed eleifend ante et ligula elei</p>
+                                    <h2>Say goodbye to traditional moving</h2>
+                                    <p>We love our technology. When you hire us, you use your phone app through every
+                                        step, you can also track your orders location untill its delivered to your door
+                                        through our user friendly app.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider__item"
+                     style="background-image: url('{% static 'main/assets/img/slider_3.jpeg' %}');">
+                    <div class="md-tb">
+                        <div class="md-tb__cell">
+                            <div class="slider__content">
+                                <div class="container">
+                                    <h2>See how we make it simple</h2>
+                                    <p>800-809-0392</p>
+                                    <p>201-432-3400</p>
                                 </div>
                             </div>
                         </div>
@@ -43,20 +60,29 @@
         <!-- Service-->
 
         <!-- Section -->
-        <section class="md-section" style="background-color:#f7f7f7;padding:0;">
+        <section class="md-section" style="background-color:#f7f7f7;padding:0; max-height: 500px;">
             <div class="container">
                 <div class="textbox-group">
                     <div class="row">
                         <div class="col-md-4 col-lg-4 ">
 
                             <!-- textbox -->
-                            <div class="textbox">
-                                <div class="textbox__image"><a href="#"><img src="{% static 'main/assets/img/services/4.jpg'%}"
-                                                                             alt=""/></a></div>
+                            <div class="textbox" style="min-height: 550px;">
+                                <h2 class="textbox__title">
+                                    Local Moving
+                                </h2>
+                                <div class="textbox__image index__textbox__image">
+                                    <i class="fa fa-truck" style="font-size: 15em; color: #f39c12;"
+                                       aria-hidden="true"></i>
+                                </div>
                                 <div class="textbox__body">
-                                    <h2 class="textbox__title"><a href="#">Free template</a></h2>
-                                    <div class="textbox__description">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit. Ut laoreet ut lacus a tincidunt. Quisque lu
+                                    <h2 class="textbox__title">How to prepare for our arrival</h2>
+                                    <div class="textbox__description">
+                                        Track your driver from the moment they leave out facility till your job is
+                                        delivered.
+                                    </div>
+                                    <div class="textbox__description">
+                                        download app now
                                     </div>
                                 </div>
                             </div><!-- End / textbox -->
@@ -65,13 +91,19 @@
                         <div class="col-md-4 col-lg-4 ">
 
                             <!-- textbox -->
-                            <div class="textbox">
-                                <div class="textbox__image"><a href="#"><img src="{% static 'main/assets/img/services/5.jpg'%}"
-                                                                             alt=""/></a></div>
+                            <div class="textbox" style="min-height: 550px;">
+                                <h2 class="textbox__title">
+                                    Long Distance Moving
+                                </h2>
+                                <div class="textbox__image index__textbox__image">
+                                    <i class="fa fa-map-signs" style="font-size: 15em; color: #f39c12;"
+                                       aria-hidden="true"></i>
+                                </div>
                                 <div class="textbox__body">
-                                    <h2 class="textbox__title"><a href="#">Responsive Layout</a></h2>
-                                    <div class="textbox__description">Nam elit ligula, egestas et ornare non, viverra eu
-                                        justo. Aliquam ornare lectus ut pharetra dictum.
+                                    <h2 class="textbox__title">Learn which supplies your need and order all
+                                        your supplies here</h2>
+                                    <div class="textbox__description">Once our moving pros arrive till they leave every
+                                        step is shown in our user friendly app.
                                     </div>
                                 </div>
                             </div><!-- End / textbox -->
@@ -80,13 +112,20 @@
                         <div class="col-md-4 col-lg-4 ">
 
                             <!-- textbox -->
-                            <div class="textbox">
-                                <div class="textbox__image"><a href="#"><img src="{% static 'main/assets/img/services/6.jpg'%}"
-                                                                             alt=""/></a></div>
+                            <div class="textbox" style="min-height: 550px;">
+                                <h2 class="textbox__title">
+                                    Commercial Relocation
+                                </h2>
+                                <div class="textbox__image">
+                                    <i class="fa fa-industry" style="font-size: 15em; color: #f39c12;"
+                                       aria-hidden="true"></i>
+                                </div>
                                 <div class="textbox__body">
-                                    <h2 class="textbox__title"><a href="#">SEO Optimized</a></h2>
-                                    <div class="textbox__description">Mauris lacinia venenatis dolor sit amet viverra.
-                                        Integer malesuada nulla neque. Sed rutrum ligula eu
+                                    <h2 class="textbox__title">Our proffesional will know ahead of time
+                                        exactly where to place your items</h2>
+                                    <div class="textbox__description">
+                                        Try our blue print solution it allows you to upload your blue prints of your
+                                        pickup and drop off location.
                                     </div>
                                 </div>
                             </div><!-- End / textbox -->
@@ -107,13 +146,15 @@
 
                         <!-- iconbox -->
                         <div class="iconbox">
-                            <div class="iconbox__icon"><i class="ti-headphone-alt"></i></div>
+                            <div class="iconbox__icon"><i class="ti-headphone-alt" style="font-size: 4em;"></i></div>
                             <div>
-                                <h2 class="iconbox__title"><a href="#">Best National Locations</a></h2>
-                                <div class="iconbox__description">Nam elit ligula, egestas et ornare non, viverra eu
-                                    justo. Aliquam ornare lectus ut pharetra dictum. Aliquam erat volutpat. In fringilla
-                                    erat at eros pharetra faucibus. Nunc a magna eu lectus fringilla interdum luctus
-                                    vitae diam. Morbi ac orci ac dolor pellentesque interdum vel accumsan risus. In ves
+                                <h2 class="iconbox__title">24/7 Customer Support</h2>
+                                <div class="iconbox__description">
+                                    Our representatives are well knowledgable and always witing to assist 24 hours, 7
+                                    days a week, all year round.
+                                </div>
+                                <div class="iconbox__description">
+                                    We take extreme pride in everything that involves our operations.
                                 </div>
                             </div>
                         </div><!-- End / iconbox -->
@@ -125,11 +166,17 @@
 
                         <!-- iconbox -->
                         <div class="iconbox iconbox__style-02">
-                            <div class="iconbox__icon"><i class="ti-announcement"></i></div>
+                            <div class="iconbox__icon"><i class="fa fa-users"
+                                                          style="font-size: 2em; padding-top: 15px;"></i></div>
                             <div>
-                                <h2 class="iconbox__title"><a href="#">Brand &amp; Identity</a></h2>
-                                <div class="iconbox__description">Mauris lacinia venenatis dolor sit amet viverra.
-                                    Integer malesuada nulla neque. Sed rutrum ligula eu
+                                <h2 class="iconbox__title">Our Team</h2>
+                                <div class="textbox__description">
+                                    All of our moving team must pass a CBT examination which therally educates them on
+                                    proper methods of packaging, boxing, wrapping and handling of your houseloads goods.
+                                </div>
+                                <div class="textbox__description">
+                                    In order to insure flawless handling of your stuff, and more importantly thier own
+                                    safety.
                                 </div>
                             </div>
                         </div><!-- End / iconbox -->
@@ -139,11 +186,20 @@
 
                         <!-- iconbox -->
                         <div class="iconbox iconbox__style-02">
-                            <div class="iconbox__icon"><i class="ti-headphone"></i></div>
+                            <div class="iconbox__icon"><i class="fa fa-truck"
+                                                          style="font-size: 2em; padding-top: 15px;"></i></div>
                             <div>
-                                <h2 class="iconbox__title"><a href="#">Marketing Planning</a></h2>
-                                <div class="iconbox__description">Etiam non varius justo, vel tempor mi. Nulla facilisi.
-                                    Fusce at tortor arcu. Suspendisse maximus ac
+                                <h2 class="iconbox__title">Our Equipments</h2>
+                                <div class="textbox__description">
+                                    Our trucks are equipped differently than others, we implement technology to enhance
+                                    our drivers and movers. Not to mention we do our best at keeping it spotless.
+                                </div>
+                                <div class="textbox__description">
+                                    Curious how we added technology to our truks?
+                                </div>
+                                <div class="textbox__description">
+                                    Ask the driver when our team shows up for your move and he/she will be excited to
+                                    show you.
                                 </div>
                             </div>
                         </div><!-- End / iconbox -->
@@ -153,12 +209,17 @@
 
                         <!-- iconbox -->
                         <div class="iconbox iconbox__style-02">
-                            <div class="iconbox__icon"><i class="ti-timer"></i></div>
+                            <div class="iconbox__icon"><i class="fa fa-trash" style="font-size: 2em; padding-top: 15px;"></i></div>
                             <div>
-                                <h2 class="iconbox__title"><a href="#">Business Planning</a></h2>
-                                <div class="iconbox__description">Mauris lacinia venenatis dolor sit amet viverra.
-                                    Integer malesuada nulla neque. Sed rutrum ligula eu
+                                <h2 class="iconbox__title">Easy Disposal</h2>
+                                <div class="textbox__description">
+                                    We leave our work area spotless.
                                 </div>
+                                <div class="textbox__description">
+                                    Once our movers unpack your items, they will collect all the material and pack it in
+                                    a box for you for easy disposal.
+                                </div>
+
                             </div>
                         </div><!-- End / iconbox -->
 
@@ -167,11 +228,14 @@
 
                         <!-- iconbox -->
                         <div class="iconbox iconbox__style-02">
-                            <div class="iconbox__icon"><i class="ti-briefcase"></i></div>
+                            <div class="iconbox__icon"><i class="fa fa-location-arrow" style="font-size: 2em; padding-top: 15px;"></i></div>
                             <div>
-                                <h2 class="iconbox__title"><a href="#">Email Marketing</a></h2>
-                                <div class="iconbox__description">Suspendisse ac elit vitae est lacinia interdum eu sit
-                                    amet mauris. Phasellus aliquam nisi sit amet l
+                                <h2 class="iconbox__title">Tracking</h2>
+                                <div class="textbox__description">
+                                    Our phone apps allow you to monitor the truck from time of pickup till your job is dropped off.
+                                </div>
+                                <div class="textbox__description">
+                                    you can also see how long the job took and accurate cost realtime while our movers are working.
                                 </div>
                             </div>
                         </div><!-- End / iconbox -->
@@ -182,7 +246,7 @@
         </section>
         <!-- End / Section -->
 
-        <!-- About-->
+        {% comment %}<!-- About-->
 
         <!-- Section -->
         <section class="md-section">
@@ -244,8 +308,10 @@
                             <!-- carousel__element owl-carousel -->
                             <div class="carousel__element owl-carousel"
                                  data-options='{"items":1,"loop":true,"dots":false,"nav":false,"margin":30,"responsive":{"0":{"items":2},"576":{"items":3},"992":{"items":1}}}'>
-                                <div class="image-full"><img src="{% static 'main/assets/img/image-01.jpg'%}" alt=""></div>
-                                <div class="image-full"><img src="{% static 'main/assets/img/image-02.jpg'%}" alt=""></div>
+                                <div class="image-full"><img src="{% static 'main/assets/img/image-01.jpg' %}" alt="">
+                                </div>
+                                <div class="image-full"><img src="{% static 'main/assets/img/image-02.jpg' %}" alt="">
+                                </div>
                             </div><!-- End / carousel__element owl-carousel -->
 
                         </div>
@@ -253,13 +319,13 @@
                 </div>
             </div>
         </section>
-        <!-- End / Section -->
+        <!-- End / Section -->{% endcomment %}
 
         <!-- Contact us-->
 
         <!-- Section -->
         <section class="md-section md-skin-dark js-consult-form"
-                 style="background-image:url(&quot;{% static 'main/assets/img/backgrounds/1.jpg'%}&quot;);'">
+                 style="background-image:url(&quot;{% static 'main/assets/img/backgrounds/1.jpg' %}&quot;);'">
             <div class="md-overlay"></div>
             <div class="container">
                 <div class="row">
@@ -268,32 +334,41 @@
                         <!-- title-01 -->
                         <div class="title-01 title-01__style-02">
                             <h2 class="title-01__title">Contact With Us via Hot Line</h2>
-                            <div>Sed ante nisl, fermentum et facilisis in, maximus</div>
-                        </div><!-- End / title-01 -->
+                        </div>
+                        <!-- End / title-01 -->
 
-                        <div class="consult-phone">(+88) 242 2323 777</div>
+                        <div class="consult-phone">800-809-0392</div>
+                        <div class="consult-phone">201-432-3400</div>
                     </div>
                 </div>
 
                 <!-- form-01 -->
                 <div class="form-01 consult-form js-consult-form__content">
-                    <h2 class="form-01__title">Give Us Your Feedback</h2>
-                    <form class="form-01__form">
-                        <div class="form__item form__item--03">
-                            <input type="text" name="name" placeholder="Your name"/>
-                        </div>
-                        <div class="form__item form__item--03">
-                            <input type="text" name="phone" placeholder="Your Email"/>
-                        </div>
-                        <div class="form__item form__item--03">
-                            <input type="email" name="email" placeholder="Your Email"/>
-                        </div>
-                        <div class="form__item">
-                            <textarea rows="3" name="Your message" placeholder="Your message"></textarea>
-                        </div>
-                        <div class="form__button"><a class="btn btn-primary btn-w180" href="#">send message</a>
-                        </div>
-                    </form>
+                    {% if feedback_sent == None or not feedback_sent %}
+                        <h2 class="form-01__title">Give Us Your Feedback</h2>
+                        <form class="form-01__form" action='{% url 'feedback' %}' method="POST">
+                            {% csrf_token %}
+                            <div class="form__item form__item--03">
+                                <input type="text" name="name" placeholder="Your name"/>
+                            </div>
+                            <div class="form__item form__item--03">
+                                <input type="text" name="phone" placeholder="Your Phone"/>
+                            </div>
+                            <div class="form__item form__item--03">
+                                <input type="email" name="email" placeholder="Your Email"/>
+                            </div>
+                            <div class="form__item">
+                                <textarea rows="3" name="Your message" placeholder="Your message"></textarea>
+                            </div>
+                            <div class="form__button"><input type="submit" class="btn btn-primary btn-w180" value="send
+                                message">send message</input>
+                            </div>
+                        </form>
+                    {% else %}
+                        <h2 class="form-01__title">
+                            Thank you for your feedback
+                        </h2>
+                    {% endif %}
                 </div><!-- End / form-01 -->
 
             </div>
@@ -310,7 +385,7 @@
 
                         <!-- title-01 -->
                         <div class="title-01" style="margin-bottom:50px;">
-                            <h2 class="title-01__title">What’s Client Say?</h2>
+                            <h2 class="title-01__title">What’s Clients Say?</h2>
                         </div><!-- End / title-01 -->
 
                     </div>
@@ -323,47 +398,55 @@
 
                         <!-- testimonial -->
                         <div class="testimonial">
-                            <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img
-                                    src="{% static 'main/assets/img/avatars/avatar-01.jpg'%}" alt=""/></a>
-                                <h5 class="testimonial__name">Brandon Hanson</h5><span
-                                        class="testimonial__position">Support</span>
-                            </div>
-                            <div class="testimonial__content">
-                                <div class="testimonial__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Ut laoreet ut lacus a tincidunt. Quisque luctus nibh augue, non ultrices arcu
-                                    molestie in. In
-                                </div>
-                            </div>
-                        </div><!-- End / testimonial -->
 
+                            <!-- video -->
+                            <div class="video" data-init="video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/VlMqx6Jssus"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="video-content">
+
+                                    <div class="video-inner">
+                                        <div class="video-button"><i class="fa fa-play"></i></div>
+                                    </div>
+                                </div>
+                            </div><!-- End / video -->
+
+                        </div><!-- End / testimonial -->
 
                         <!-- testimonial -->
                         <div class="testimonial">
-                            <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img
-                                    src="{% static 'main/assets/img/avatars/avatar-02.jpg'%}" alt=""/></a>
-                                <h5 class="testimonial__name">Brandon Hanson</h5><span class="testimonial__position">CEO &amp; Founder</span>
-                            </div>
-                            <div class="testimonial__content">
-                                <div class="testimonial__text">Sed ante nisl, fermentum et facilisis in, maximus sed
-                                    ipsum. Cras hendrerit feugiat eros, ut fringilla nunc finibus sed. Quisque vitae
-                                    dictum augue, v
-                                </div>
-                            </div>
-                        </div><!-- End / testimonial -->
 
+                            <!-- video -->
+                            <div class="video" data-init="video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/mi2jrLumAxQ"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="video-content">
+
+                                    <div class="video-inner">
+                                        <div class="video-button"><i class="fa fa-play"></i></div>
+                                    </div>
+                                </div>
+                            </div><!-- End / video -->
+
+
+                        </div><!-- End / testimonial -->
 
                         <!-- testimonial -->
                         <div class="testimonial">
-                            <div class="testimonial__info"><a class="testimonial__avatar" href="#"><img
-                                    src="{% static 'main/assets/img/avatars/1.jpg'%}" alt=""/></a>
-                                <h5 class="testimonial__name">Maria Gutierrez</h5><span class="testimonial__position">Designer</span>
-                            </div>
-                            <div class="testimonial__content">
-                                <div class="testimonial__text">Mauris lacinia venenatis dolor sit amet viverra. Integer
-                                    malesuada nulla neque. Sed rutrum ligula eu sagittis volutpat. Aliquam erat
-                                    volutpat. Praesen
+
+                            <!-- video -->
+                            <div class="video" data-init="video">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/uxTZxZV6DCY"
+                                        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="video-content">
+
+                                    <div class="video-inner">
+                                        <div class="video-button"><i class="fa fa-play"></i></div>
+                                    </div>
                                 </div>
-                            </div>
+                            </div><!-- End / video -->
+
+
                         </div><!-- End / testimonial -->
 
                     </div><!-- End / carousel__element owl-carousel -->
@@ -373,7 +456,7 @@
         </section>
         <!-- End / Section -->
 
-        <!-- Our partner-->
+        {% comment %}<!-- Our partner-->
 
         <!-- Section -->
         <section class="md-section">
@@ -395,40 +478,45 @@
 
                     <!--  -->
                     <div>
-                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/1.png'%}" alt=""/></div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/1.png' %}" alt=""/>
+                        </div>
                     </div><!-- End /  -->
 
 
                     <!--  -->
                     <div>
-                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/2.png'%}" alt=""/></div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/2.png' %}" alt=""/>
+                        </div>
                     </div><!-- End /  -->
 
 
                     <!--  -->
                     <div>
-                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/3.png'%}" alt=""/></div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/3.png' %}" alt=""/>
+                        </div>
                     </div><!-- End /  -->
 
 
                     <!--  -->
                     <div>
-                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/4.png'%}" alt=""/></div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/4.png' %}" alt=""/>
+                        </div>
                     </div><!-- End /  -->
 
 
                     <!--  -->
                     <div>
-                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/5.png'%}" alt=""/></div>
+                        <div class="brand-01__image"><img src="{% static 'main/assets/img/brands/5.png' %}" alt=""/>
+                        </div>
                     </div><!-- End /  -->
 
                 </div><!-- End / carousel__element owl-carousel -->
 
             </div>
         </section>
-        <!-- End / Section -->
+        <!-- End / Section -->{% endcomment %}
 
-        <!-- Latest Blogs -->
+        {% comment %}<!-- Latest Blogs -->
 
         <!-- Section -->
         <section class="md-section consult-background">
@@ -450,7 +538,8 @@
 
                     <!--  -->
                     <div>
-                        <div class="post-01__media"><a href="#"><img src="{% static 'main/assets/img/blogs/related-1.jpg'%}" alt=""/></a>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-1.jpg' %}" alt=""/></a>
                         </div>
                         <div>
                             <ul class="post-01__categories">
@@ -465,7 +554,8 @@
 
                     <!--  -->
                     <div>
-                        <div class="post-01__media"><a href="#"><img src="{% static 'main/assets/img/blogs/related-2.jpg'%}" alt=""/></a>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-2.jpg' %}" alt=""/></a>
                         </div>
                         <div>
                             <ul class="post-01__categories">
@@ -480,7 +570,8 @@
 
                     <!--  -->
                     <div>
-                        <div class="post-01__media"><a href="#"><img src="{% static 'main/assets/img/blogs/related-3.jpg'%}" alt=""/></a>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-3.jpg' %}" alt=""/></a>
                         </div>
                         <div>
                             <ul class="post-01__categories">
@@ -495,7 +586,8 @@
 
                     <!--  -->
                     <div>
-                        <div class="post-01__media"><a href="#"><img src="{% static 'main/assets/img/blogs/related-4.jpg'%}" alt=""/></a>
+                        <div class="post-01__media"><a href="#"><img
+                                src="{% static 'main/assets/img/blogs/related-4.jpg' %}" alt=""/></a>
                         </div>
                         <div>
                             <ul class="post-01__categories">
@@ -511,7 +603,7 @@
 
             </div>
         </section>
-        <!-- End / Section -->
+        <!-- End / Section -->{% endcomment %}
 
     </div>
 

@@ -24,8 +24,24 @@ def about(request):
     return render(request, "main/about.html")
 
 
+def terms_and_conditions(request):
+    return render(request, "main/terms_and_conditions.html")
+
+
+def privacy_policy(request):
+    return render(request, "main/privacy_policy.html")
+
+
 def contact(request):
     return render(request, "main/contact.html")
+
+
+def feedback(request):
+    #add message to response with success in case of sent
+    context = {
+        "feedback_sent": True,
+    }
+    return render(request, 'main/index.html', context)
 
 
 def track_your_order(request):

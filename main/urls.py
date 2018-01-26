@@ -31,6 +31,9 @@ urlpatterns = [
     url(r'^vehicleTypelist/(?P<vehicle_id>[0-9]+)$', views.VehicleTypeList.as_view()),
     url(r'^config/(?P<variable>\w+)$', views.ConfigurationValue.as_view()),
     url(r'^trackYourOrder/(?P<tracking_id>\w+)$', views.TrackYourOrder.as_view()),
+    url(r'^terms_and_conditions', views.terms_and_conditions, name='terms_and_conditions'),
+    url(r'^privacy_policy', views.privacy_policy, name='privacy_policy'),
+    url(r'^feedback', views.feedback, name='feedback'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
